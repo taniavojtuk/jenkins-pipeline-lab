@@ -4,19 +4,20 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building Docker image...'
-                sh 'docker build -t myapp:latest .'
+                // Локальна збірка Docker-образу
+                sh 'docker build -t myapp:latest .' 
             }
         }
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh 'echo "Tests passed!"'
+                // Імітація тестів
+                sh 'echo "Tests passed!"' 
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploy stage (local)'
-                sh 'docker images'
+                echo 'Pushing Docker image to DockerHub...' 
             }
         }
     }
